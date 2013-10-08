@@ -1,1 +1,10 @@
-hello
+<%@posts.each do |post|%>
+<h2><%=post.title%>  <%=link_to 'Edit', edit_post_path(post) %> <%=link_to 'Delete', delete_post_path(post), method: :delete %></h2>
+<p><%=post.content%></p>
+<%end%>
+
+<%= form_for :post, url: {action: "create"} do |f| %>
+<%= f.text_field :title %>
+<%= f.text_area :content %>
+<%= f.submit "Submit" %>
+<% end %>

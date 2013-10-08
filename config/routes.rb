@@ -1,6 +1,16 @@
 Messageboard::Application.routes.draw do
 
-    get '/' => 'posts#index'
+   root :to => 'posts#index'
+
+
+    get '/posts' => 'posts#index'
+    post '/posts' => 'posts#create'
+    delete '/posts/:id/delete' => 'posts#delete', as: 'delete_post'
+    get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
+    put '/posts/:id' => 'posts#update', as: 'update_post'
+
+
+    # match '/posts', to: 'posts#delete', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
