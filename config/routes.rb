@@ -1,13 +1,15 @@
 Messageboard::Application.routes.draw do
 
-   root :to => 'posts#index'
+  root :to => 'posts#index'
 
+  resources :posts
 
-    get '/posts' => 'posts#index'
-    post '/posts' => 'posts#create'
-    delete '/posts/:id/delete' => 'posts#delete', as: 'delete_post'
-    get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
-    put '/posts/:id' => 'posts#update', as: 'update_post'
+    # get '/posts' => 'posts#index'
+    # post '/posts' => 'posts#create'
+    # delete '/posts/:id/delete' => 'posts#delete', as: 'delete_post'
+    # get '/posts/:id/edit' => 'posts#edit', as: 'edit_post'
+    # put '/posts/:id' => 'posts#update', as: 'update_post'
+    # get '/posts/:id' => 'posts#comment', as: 'comment_post'
 
 
     # match '/posts', to: 'posts#delete', via: :delete
