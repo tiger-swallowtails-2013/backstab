@@ -1,4 +1,4 @@
-  <h2><%=post.title%> <%=link_to 'Edit', edit_post_path(post) %> <%=link_to 'Delete', post, method: 'delete' %></h2>
+  <h2><%=post.title%> <%=link_to 'Edit', edit_post_path %> <%=link_to 'Delete', post, method: 'delete' %></h2>
   <p><%=post.content%></p>
   <% post.comments.each do |comment| %>
   <h4><%= comment.title %></h4>
