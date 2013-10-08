@@ -42,4 +42,12 @@ group :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'jasmine'
+  gem 'database_cleaner'
+end
+
+group :development do
+  gem 'sextant'
 end

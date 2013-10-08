@@ -1,0 +1,14 @@
+
+<h1>hiiiiiiiiiiiiiiiiii just post shit</h1>
+
+<%@posts.each do |post|%>
+        <% if post.parent_id == 0 %>
+  <h2><%=link_to post.title, post %> </h2>
+<%end%>
+<%end%>
+
+<p>
+    <%= render partial: "form", locals: {:post => @post, :parent_id => 0}%>
+</p>
+
+
