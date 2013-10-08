@@ -6,10 +6,13 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'factory_girl'
 require 'shoulda/matchers'
+require 'database_cleaner'
 
 # Requires supportcding ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+DatabaseCleaner.strategy = :transaction
 
 RSpec.configure do |config|
   # ## Mock Framework

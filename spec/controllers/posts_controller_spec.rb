@@ -47,6 +47,7 @@ describe PostsController do
       end
 
       it "should redirect to post_path" do
+        p parent_post
         post :create, post: FactoryGirl.attributes_for(:comment)
         expect(response).to redirect_to post_path(parent_post)
       end
