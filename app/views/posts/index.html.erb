@@ -2,7 +2,7 @@
 <h1>hiiiiiiiiiiiiiiiiii just post shit</h1>
 
 <%@posts.each do |post|%>
-        <% if post.parent_id.nil? %>
+        <% if post.parent_id == 0 %>
   <h2><%=link_to post.title, post %> </h2>
 <%end%>
 <%end%>

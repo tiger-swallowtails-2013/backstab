@@ -20,13 +20,13 @@ class PostsController < ApplicationController
  def create
   title = params[:post][:title]
   content = params[:post][:content]
-
-  if params[:post][:has_parent]
+  parent_id = params[:post][:parent_id].to_i
+  if params[:post][:has_parent] && parent_id > 0
     parent = Post.find(params[:post][:parent_id])
-    parent.comments << Post.create(title: title, content: content)
+    parent.comments << Post.create(title: title, content: content, parent_id: parent_id)
     redirect_to post_path(parent)
   else
-    post = Post.create(title: title, content: content)
+    post = Post.create(title: title, content: content, parent_id: parent_id)
     redirect_to root_path
   end
 end
