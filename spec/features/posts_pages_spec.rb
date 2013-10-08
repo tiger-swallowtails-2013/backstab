@@ -2,12 +2,8 @@ require 'spec_helper'
 
 DatabaseCleaner.strategy = :transaction
 describe "feature" do
-  # before :each do
   DatabaseCleaner.start
-  # end
 
-  # after :each do
-  # end
 
   describe "index" do
 
