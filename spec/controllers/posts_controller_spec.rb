@@ -52,5 +52,18 @@ describe PostsController do
       end
     end 
   end
+
+  describe "PUT #update" do
+    it "should update the post with the params passed" do
+      put :update, id: parent_post, post: FactoryGirl.attributes_for(:post, title: "Title", content: "Content") 
+      parent_post.reload
+      expect(parent_post.title).to eq("Title")
+      expect(parent_post.content).to eq("Content")
+    end
+    it "should redirect_to the post_path" do
+      put :update, id: parent_post, post: FactoryGirl.attributes_for(:post) 
+      response.should redirect_to post_path(parent_post)
+    end
+  end
 end
 
