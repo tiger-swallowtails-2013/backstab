@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -16,10 +18,8 @@ class PostsController < ApplicationController
  end
 
  def create
-  parent_id = params[:post][:parent_id].to_i
-  if parent_id > 0
-    parent = Post.find(params[:post][:parent_id])
-    parent.comments << Post.create(params[:post])
+  if is_parent_post?
+    parent = create_parent_post
     redirect_to post_path(parent)
   else
     post = Post.create(params[:post])
@@ -33,10 +33,7 @@ end
   end
 
   def update
-    title = params[:post][:title]
-    content = params[:post][:content]
-    post = Post.find(params[:id])
-    post.update_attributes(title: title, content: content)
+    post = update_post
     redirect_to post_path(post)
   end
 end
