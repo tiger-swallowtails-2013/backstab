@@ -21,6 +21,7 @@ describe Post do
 context "associations" do
   it { should have_many(:comments) }
   it { should belong_to(:parent)}
+  it {should belong_to(:user)}
 end
 
 end

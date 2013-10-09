@@ -4,6 +4,14 @@ Messageboard::Application.routes.draw do
 
   resources :posts
 
+  resources :users
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+
     # get '/posts' => 'posts#index'
     # post '/posts' => 'posts#create'
     # delete '/posts/:id/delete' => 'posts#delete', as: 'delete_post'

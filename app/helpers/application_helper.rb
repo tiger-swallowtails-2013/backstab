@@ -17,4 +17,8 @@ module ApplicationHelper
     post.update_attributes(title: title, content: content)
     post
   end
+
+  def not_signed_in?
+    false
+  end
 end

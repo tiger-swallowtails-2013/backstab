@@ -18,7 +18,9 @@ class PostsController < ApplicationController
  end
 
  def create
-  if is_parent_post?
+  if not_signed_in?
+    redirect_to signup_path
+  elsif is_parent_post?
     parent = create_parent_post
     redirect_to post_path(parent)
   else

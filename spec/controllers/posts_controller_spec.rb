@@ -7,7 +7,7 @@ describe PostsController do
   let!(:parent_post) {FactoryGirl.create(:post)}
   describe "GET #index" do
     it "makes an array of posts available to the view" do
-      get :index
+      get :index 
       assigns(:posts).should_not be_nil
     end
   end
@@ -47,7 +47,6 @@ describe PostsController do
       end
 
       it "should redirect to post_path" do
-        p parent_post
         post :create, post: FactoryGirl.attributes_for(:comment)
         expect(response).to redirect_to post_path(parent_post)
       end

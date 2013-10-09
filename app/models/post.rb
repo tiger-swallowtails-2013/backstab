@@ -3,4 +3,5 @@ class Post < ActiveRecord::Base
   validates :content, :presence => true
   has_many :comments, :class_name => "Post", :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Post", :foreign_key => "parent_id"
+  belongs_to :user
 end

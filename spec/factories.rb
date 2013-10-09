@@ -7,5 +7,10 @@ FactoryGirl.define do
   factory :comment, parent: :post do |f|
     f.parent_id 1
   end  
+
+  factory :user do |f|
+    f.username {Faker::Internet.user_name}
+    f.password {Faker::Internet.password}
+  end
  
 end
